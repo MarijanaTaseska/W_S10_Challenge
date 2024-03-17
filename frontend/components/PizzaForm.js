@@ -1,7 +1,5 @@
 import React,{useReducer} from 'react'
 import { useCreateOrderMutation } from '../state/usersAPi'
-import { useSelector,useDispatch } from 'react-redux'
-import { checkboxTopping , changeName } from '../state/ordersSlice'
 
 
 const CHANGE_NAME = 'CHANGE_NAME'
@@ -40,11 +38,11 @@ const reducer = (state=initialState, action) =>{
 export default function PizzaForm() {
 const [state,dispatch] = useReducer(reducer,initialState)
 const [createOrder, {error: creationError,isLoading:loadingOrder}] = useCreateOrderMutation()
-// const initialState2 = useSelector(state => state.form)
+
 
 
   const checkedToppings = Object.keys(state)
-  .filter(key => key !== 'fullName' && key !== 'size') // Exclude fullName and size properties
+  .filter(key => key !== 'fullName' && key !== 'size') 
   .filter(key => state[key])
   
 

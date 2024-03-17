@@ -1,18 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { usersApi } from './usersAPi'
-import formReducer from './ordersSlice'
 
-
-
-
-// const exampleReducer = (state = { 
-//   }) => {
-//    return state
-//   }
 
 export const resetStore = () => configureStore({
    reducer: {
-    form: formReducer,
+    
    [usersApi.reducerPath] : usersApi.reducer
   //  add your reducer(s) here
   },
